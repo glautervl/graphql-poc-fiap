@@ -1,0 +1,23 @@
+type User {
+    id: ID!
+    name: String
+    role: Role
+}
+
+enum Role {
+    ADMIN,
+    MANAGER,
+    OPERATOR,
+    GUEST
+}
+
+type Query {
+    findAll: [User]!
+    findOne(id: ID): User
+}
+
+type Mutation {
+    create(name: String,role: Role): User
+    update(id: ID, name: String, role: Role): User
+    delete(id: ID): User
+}
